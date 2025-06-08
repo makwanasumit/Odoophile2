@@ -21,7 +21,6 @@ import { UserBlog } from './collections/UserBlog'
 import { Comments } from './collections/comments'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 
-
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -72,7 +71,16 @@ export default buildConfig({
   globals: [Header, Footer],
   plugins: [
     ...plugins,
-    // storage-adapter-placeholder 
+    // Vercel Blob Storage configuration
+    vercelBlobStorage({
+      collections: {
+        media: true, // Enable for Media collection
+        // Add other collections that need file storage
+        // profiles: true, // if Profiles collection has file uploads
+        // userBlog: true, // if UserBlog collection has file uploads
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    }),
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
