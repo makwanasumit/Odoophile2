@@ -25,12 +25,6 @@ import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-interface VercelBlobStorageOptions {
-  enabled: boolean;
-  collections: Record<string, true | { prefix: string }>;
-  token: string;
-}
-
 export default buildConfig({
   admin: {
     components: {
@@ -79,15 +73,6 @@ export default buildConfig({
   plugins: [
     ...plugins,
     // storage-adapter-placeholder 
-    vercelBlobStorage({
-      enabled: true, // Optional, defaults to true
-      // Specify which collections should use Vercel Blob
-      collections: {
-        media: true,
-      },
-      // Token provided by Vercel once Blob storage is added to your Vercel project
-      token: process.env.BLOB_READ_WRITE_TOKEN,
-    }),
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
