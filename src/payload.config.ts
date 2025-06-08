@@ -74,13 +74,13 @@ export default buildConfig({
     // Vercel Blob Storage configuration
     vercelBlobStorage({
       collections: {
-        media: true, // Enable for Media collection
-        // Add other collections that need file storage
-        // profiles: true, // if Profiles collection has file uploads
-        // userBlog: true, // if UserBlog collection has file uploads
+        media: {
+          prefix: 'media', // Optional: prefix for blob names
+        },
       },
       token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    }),
+      // Optional: configure allowed file types, sizes, etc.
+    })
   ],
   secret: process.env.PAYLOAD_SECRET,
   sharp,

@@ -45,8 +45,8 @@ importers:
         specifier: 3.31.0
         version: 3.31.0(@faceless-ui/modal@3.0.0-beta.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@faceless-ui/scroll-info@2.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@payloadcms/next@3.31.0(@types/react@19.0.12)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@types/react@19.0.12)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(yjs@13.6.24)
       '@payloadcms/storage-vercel-blob':
-        specifier: ^3.41.0
-        version: 3.41.0(@types/react@19.0.12)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+        specifier: 3.11.0
+        version: 3.11.0(@aws-sdk/client-s3@3.782.0)(@aws-sdk/lib-storage@3.782.0(@aws-sdk/client-s3@3.782.0))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))
       '@payloadcms/ui':
         specifier: 3.31.0
         version: 3.31.0(@types/react@19.0.12)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
@@ -1124,6 +1124,30 @@ packages:
     peerDependencies:
       payload: 3.31.0
 
+  '@payloadcms/plugin-cloud-storage@3.11.0':
+    resolution: {integrity: sha512-WAqUwne4p8gdID6ucQdOw4rAw4FvV2/WcleOm34XoMUIVwyb1CuUVTFjAO6GNj9/GyGY5+2/GIH6fjVXxe2IJQ==}
+    peerDependencies:
+      '@aws-sdk/client-s3': ^3.614.0
+      '@aws-sdk/lib-storage': ^3.614.0
+      '@azure/abort-controller': ^1.0.0
+      '@azure/storage-blob': ^12.11.0
+      '@google-cloud/storage': ^7.7.0
+      '@vercel/blob': ^0.22.3
+      payload: 3.11.0
+    peerDependenciesMeta:
+      '@aws-sdk/client-s3':
+        optional: true
+      '@aws-sdk/lib-storage':
+        optional: true
+      '@azure/abort-controller':
+        optional: true
+      '@azure/storage-blob':
+        optional: true
+      '@google-cloud/storage':
+        optional: true
+      '@vercel/blob':
+        optional: true
+
   '@payloadcms/plugin-cloud-storage@3.41.0':
     resolution: {integrity: sha512-fPj34eP7nZrD7mL8uzgwriG/xSdb7jUGKNKZdcxfzYbVkBWZ8s9Dg7QAaUmwtXTJAbz7LhB5Ep5sQ7wDk8KGMA==}
     peerDependencies:
@@ -1173,11 +1197,11 @@ packages:
       react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
       react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
 
-  '@payloadcms/storage-vercel-blob@3.41.0':
-    resolution: {integrity: sha512-bb9fBZe3govxlwDJD9B0hwYzH4ZRVM86GVx/ASpX3xnqDtbPyYpR84APPUd1Ug9mo7dCYN/s1qJqhLL5HKpmBg==}
+  '@payloadcms/storage-vercel-blob@3.11.0':
+    resolution: {integrity: sha512-tkiVeW4B8r9j790zkIir7/DBlXaxMi0jWAEgTHxDuHj9MefIgIKZanWOLOEF78W3dTuV4wwoDDCOxmiAjs3BDA==}
     engines: {node: ^18.20.2 || >=20.9.0}
     peerDependencies:
-      payload: 3.41.0
+      payload: 3.11.0
 
   '@payloadcms/translations@3.31.0':
     resolution: {integrity: sha512-vjbBuHJUZ04R7wkOR1+QhZRO1xG7bvkLgx6zoiKZZmvItqiPA5ZWsyrq3NFhviOH26dH2tOdnO+RLPuaElkWFg==}
@@ -6284,6 +6308,16 @@ snapshots:
       - aws-crt
       - encoding
 
+  '@payloadcms/plugin-cloud-storage@3.11.0(@aws-sdk/client-s3@3.782.0)(@aws-sdk/lib-storage@3.782.0(@aws-sdk/client-s3@3.782.0))(@vercel/blob@0.22.3)(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))':
+    dependencies:
+      find-node-modules: 2.1.3
+      payload: 3.31.0(graphql@16.10.0)(typescript@5.7.3)
+      range-parser: 1.2.1
+    optionalDependencies:
+      '@aws-sdk/client-s3': 3.782.0
+      '@aws-sdk/lib-storage': 3.782.0(@aws-sdk/client-s3@3.782.0)
+      '@vercel/blob': 0.22.3
+
   '@payloadcms/plugin-cloud-storage@3.41.0(@types/react@19.0.12)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
     dependencies:
       '@payloadcms/ui': 3.41.0(@types/react@19.0.12)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
@@ -6392,19 +6426,17 @@ snapshots:
       - typescript
       - yjs
 
-  '@payloadcms/storage-vercel-blob@3.41.0(@types/react@19.0.12)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
+  '@payloadcms/storage-vercel-blob@3.11.0(@aws-sdk/client-s3@3.782.0)(@aws-sdk/lib-storage@3.782.0(@aws-sdk/client-s3@3.782.0))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))':
     dependencies:
-      '@payloadcms/plugin-cloud-storage': 3.41.0(@types/react@19.0.12)(monaco-editor@0.52.2)(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      '@payloadcms/plugin-cloud-storage': 3.11.0(@aws-sdk/client-s3@3.782.0)(@aws-sdk/lib-storage@3.782.0(@aws-sdk/client-s3@3.782.0))(@vercel/blob@0.22.3)(payload@3.31.0(graphql@16.10.0)(typescript@5.7.3))
       '@vercel/blob': 0.22.3
       payload: 3.31.0(graphql@16.10.0)(typescript@5.7.3)
     transitivePeerDependencies:
-      - '@types/react'
-      - monaco-editor
-      - next
-      - react
-      - react-dom
-      - supports-color
-      - typescript
+      - '@aws-sdk/client-s3'
+      - '@aws-sdk/lib-storage'
+      - '@azure/abort-controller'
+      - '@azure/storage-blob'
+      - '@google-cloud/storage'
 
   '@payloadcms/translations@3.31.0':
     dependencies:
